@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Addbook_page</title>
+    <link rel="stylesheet" type="text/css" href="../all_CSS/dstyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/jpg" href="../images/logo.png">
+</head>
+
+<body class="icontainer">
+    <div class="ibox">
+        <img src="../images/iithlogo.png" alt="no-image" class="iith"><br>
+    <!--  <p style="font-size: 2.3vw ; margin-left: 15%; display: inline;"><span style="color: blue;">B</span><span style="color: red;">o</span><span style="color: yellow;">o</span><span style="color: blue;">k</span> <span style="color: green;">t</span><span style="color: red;">r</span><span style="color:chocolate;">a</span><span style="color:aqua;">n</span><span style="color: rgb(255, 0, 0);">s</span><span style="color:mediumpurple;">a</span><span style="color:palevioletred;">c</span><span style="color: blue;">t</span><span style="color: rgb(17, 255, 0);">i</span><span style="color: rgba(0, 0, 0);">o</span><span style="color: rgb(106, 106, 246);">n</span><span style="color:gold;">s</span></p>-->
+    <p style="font-size: 2.3vw ; margin-left: 15%; display: inline;"><span style="color: black; font-size: 2.5vw; font-weight: 600;">Add new Books</span></p>
+        <form enctype="multipart/form-data" >
+            <br>
+            
+
+            <label for="Name" class="dheads">&nbsp;&nbsp;Book-Name:&nbsp;</label>
+            <input type="name" id="bookname" name="bookname" required="required" placeholder="Enter name of book"
+                class="dnbox"><br><br>
+
+            <label for="AName" class="dheads">Author-Name:&nbsp;</label>
+            <input type="name" id="authorname" name="authorname" required="required" placeholder="Enter Author name"
+                class="dnbox"><br><br>
+
+                <label for="Genre" class="dheads">&nbsp;&nbsp;Genre:&nbsp;</label>
+            <input type="name" id="bookname" name="genre" required="required" placeholder="Enter type for genre"
+                class="dnbox"><br><br>
+
+            <label for="image" class="dheads">Upload Image:&nbsp;</label>
+            <input type="file" id="image" name="image" class="dnbox1" onchange="fileChosen(this)">
+            
+            <br><br>
+            
+            
+            <label for="copies"  class="dheads">Number of Copies:</label>
+            <input type="number" id="copies" name="copies" min="1" max="100" class="dcopies" ><br><br><br>
+
+            <a href="../all_HTML/adminpage.html" target="_blank" class="dback">Back to admin page</a>
+            
+            <button class="dbutton">Save changes</button>
+            <br>
+
+            
+        </form>
+
+
+    </div>
+
+    <!--<script>
+        function fileChosen(input) {
+          if (input.files.length > 0) {
+            var label = input.previousElementSibling;
+            label.textContent = input.files[0].name;
+            label.style.display = 'none';
+          }
+        }
+      </script>-->
+
+
+</body>
+
+</html>
