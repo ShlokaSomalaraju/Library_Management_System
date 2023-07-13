@@ -1,0 +1,182 @@
+/*------------This styling is for Admin page------------*/
+.acontainer{
+   /* background-color:rgb(122, 122, 189);*/
+    background-size: cover;
+    margin: 0px 0px 0px 0px;
+    top:0;
+    background-image: url('iirbg.jpg');
+    background-repeat: no-repeat;
+}
+.aboxh{
+    box-sizing: border-box;
+    border-color: #000000;
+    border-left: 30%;
+   
+    margin:0% 0% 10% 20%;
+    display:inline-block;
+    position:fixed;
+    border-radius: none;
+   
+}
+
+.aheading{
+    color:rgb(0, 0, 0);
+    font-size: 3vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left:0%;
+}
+
+
+/*.abox1{
+    background-color: rgb(255, 255, 255);
+    
+    width: 20%;
+    margin-left: 20%;
+    margin-top: 150px;
+    margin-right:0%;
+    box-shadow: 10px 10px 10px black;
+    display: inline;
+    border: 2px solid #ffffff;
+    border-width: 2px;
+    border-radius: 30px;
+    justify-content: center;
+
+}*/
+
+.abox2,.abox1{
+    background-color: rgb(255, 255, 255);
+    height:90%;
+    width: 30%;
+    margin-left: 10%;
+    margin-top: 15%;
+    margin-right:5%;
+    box-shadow: 10px 10px 10px rgb(78, 54, 86);
+    display: inline;
+    border: 2px solid #ffffff;
+    border-width: 2px;
+    border-radius: 30px;
+    justify-content: center;
+
+}
+.astart{
+    display:flex;
+    flex-direction: column;
+}
+.arow{
+    display:flex;
+    flex-direction: row;
+}
+
+
+/*.abutton1{
+    background-color:  rgb(255, 3, 49);
+    border-radius: 5px;
+    width:50%;
+    height:10%;
+    text-transform: uppercase;
+    margin-top: 420px;
+    justify-content: center;
+    margin-left: 25%;
+    color:beige;
+    font-weight: 700;
+    border:solid  rgb(225, 50, 111);
+    border-width: 1px;
+    opacity:0.9;
+
+
+}*/
+
+.abutton2,.abutton1{
+    background-color: rgb(174, 118, 138);
+    border-radius: 5px;
+    width:60%;
+    height:10%;
+    text-transform: uppercase;
+    margin-top: 5%;
+    justify-content: center;
+    margin-left: 3%;
+    color: black;
+    font-weight: 700;
+    font-size: 1vw;
+    border:solid  rgb(174, 118, 138);
+    border-width: 1px;
+    opacity:0.9;
+    padding:10px 10px 10px 10px;
+    transition:0.2s;
+
+}
+
+.abutton2:hover,.abutton1:hover{
+    background-color: rgb(122, 122, 189);
+    color:black;
+    transition: 0.2s;
+    border-color: rgb(213, 215, 233);
+    size: initial;
+}
+
+.abutton2:active,.abutton1:active{
+    background-color: green;
+    opacity:0.7;
+}
+
+.atextinissue{
+    color:rgb(0, 0, 0);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2vw;
+    margin-left: 17%;
+    margin-top:7%;
+   
+}
+
+.a2img{
+    margin-left:20%;
+    opacity:1;
+    max-width: 50%;
+    margin-top:10%;
+    border-radius: 20px;
+}
+
+.a1img{
+    margin-left:20%;
+    opacity:1;
+    max-width: 46%;
+    border-radius: 20px;
+    margin-top:10%;
+    
+}
+
+/*.aarrow{
+    font-size: xx-large;
+    font-weight: 900;
+    font-style: normal;
+    
+}*/
+
+.aarrow {
+    font-size: 1em;
+    font-weight: 900;
+    font-style: normal;
+    overflow: hidden;
+    
+    
+  }
+  
+  .aarrow span {
+    display: block;
+    animation: move-up-down 0.1s infinite linear;
+  }
+  
+  @keyframes aarrow {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(100px); /* Adjust the distance of movement */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+
+

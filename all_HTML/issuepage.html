@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Issue page</title>
+    <link rel="stylesheet" type="text/css" href="istyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/jpg" href="logo.png">
+</head>
+
+<body class="icontainer">
+    <div class="ibox">
+        <img src="iithlogo.png" alt="no-image" class="iith"><br>
+    <!--  <p style="font-size: 2.5vw ; margin-left: 15%; display: inline;"><span style="color: blue;">B</span><span style="color: red;">o</span><span style="color: yellow;">o</span><span style="color: blue;">k</span> <span style="color: green;">t</span><span style="color: red;">r</span><span style="color:chocolate;">a</span><span style="color:aqua;">n</span><span style="color: rgb(255, 0, 0);">s</span><span style="color:mediumpurple;">a</span><span style="color:palevioletred;">c</span><span style="color: blue;">t</span><span style="color: rgb(17, 255, 0);">i</span><span style="color: rgba(0, 0, 0);">o</span><span style="color: rgb(106, 106, 246);">n</span><span style="color:gold;">s</span></p>-->
+    <p style="font-size: 2.5vw ; margin-left: 15%; display: inline;"><span style="color: black; font-size: 2.5vw; font-weight: 600;">Book Transactions</span></p>
+        <form enctype="multipart/form-data">
+            <br>
+            <label for="email" class="iheads">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;</label>
+            <input type="email" id="email" name="email" placeholder="student_id@iith.ac.in"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" required="required" class="inbox"><br><br>
+
+            <label for="Name" class="iheads">&nbsp;&nbsp;Book-Name:&nbsp;</label>
+            <input type="bookname" id="bookname" name="bookname" required="required" placeholder="Enter your name"
+                class="inbox"><br><br>
+
+            <label for="Name" class="iheads">Author-Name:&nbsp;</label>
+            <input type="name" id="authorname" name="authorname" required="required" placeholder="Enter Author name"
+                class="inbox"><br><br>
+
+            <p style="display:inline" class="iheads">Purpose:</p>
+            <ul class="circle-list">
+                <li>
+                    <input type="radio" id="option1" name="options" value="issue" >
+                    <label for="option1" class="purposE"><span class="irr"></span>Issue</label>
+                </li>
+                <li>
+                    <input type="radio" id="option2" name="options" value="return">
+                    <label for="option2" class="purposE"><span class="irr"></span>Return</label>
+                </li>
+                <li>
+                    <input type="radio" id="option3" name="options" value="reissue">
+                    <label for="option3" class="purposE"><span class="irr"></span>Reissue</label>
+                </li>
+            </ul>
+            <a href="adminpage.html" target="_blank" class="iback">Back to admin page</a>
+            <button class="ibutton">Save changes</button>
+
+            <!--<div class="custom-select" style="width:200px; display: inline;" >
+            <select >
+                <option value="" disabled selected>Select an option</option>
+                <option value="issue">Issue</option>
+                <option value="return">Return</option>
+                <option value="reissue">Reissue</option>
+              </select>
+              </div>-->
+        </form>
+
+
+    </div>
+
+</body>
+
+</html>

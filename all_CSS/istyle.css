@@ -1,0 +1,183 @@
+/*This code is for styling isuue/reisuue/return page*/
+.icontainer{
+   
+    background-image: url('iirbg.jpg');
+    background-repeat:no-repeat;
+    background-size: cover; 
+}
+
+ 
+.ibox{
+    box-sizing: border-box;
+    border-color: #acacac;
+    border-width: 1px;
+    border-style:solid;
+    margin-top:20%;
+    margin-left:35%;
+    max-height:80%;
+    background-color: rgb(255, 255, 255);
+    width:30%;
+    display:inline-block;
+    position:absolute;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgb(63, 63, 63);
+}
+
+.iback:hover{
+  background-color: #002fff;
+  transition: 0.2s;
+  box-shadow: 3px 3px 3px #acacac;
+}
+
+.iback{
+  text-decoration: none;
+  border: 1px solid black;
+  font-size: 1vw;
+  cursor: pointer;
+  display: inline;
+  padding: 3% 5% 3% 5%;
+  margin-right: 10%;
+  margin-left: 8%;
+  border-style: none;
+  border-radius: 4px;
+  background-color: #004cff;
+  border-color: #4000ff;
+  color:white;
+  font-family: arial;
+}
+
+.custom-select {
+    position: relative;
+    font-family: Arial;
+  }
+
+
+
+  .circle-list li {
+    list-style-type: none;
+  }
+  
+  .circle-list input[type="radio"] {
+    display: none;
+  }
+  
+  .circle-list label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .circle-list label span{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    margin-right: 5px;
+    justify-content: center;
+  }
+  
+  .circle-list input[type="radio"]:checked + label span::after {
+    content:"";
+    display: block;
+    width: 8px;
+    height: 7px;
+    margin-top: 15%;
+    margin-left: 13% ;
+    
+    background-color: #0d00ff;
+    border-radius: 100%;
+  }
+
+  .iheads{
+    color:#000;
+    font-size: 1.3vw;
+    margin-left: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+    display: inline;
+    font-weight: bold;
+  }
+
+ 
+
+  .inbox{
+    font-size: 1vw;
+    border-radius: 5px;
+    border: solid;
+    border-width: 1.7px;
+    border-color:rgb(0, 0, 0);
+    width:fit-content;
+    display: flex;
+    flex-direction: column;
+    margin-left: 34%;
+    margin-top: -5%;
+  }
+
+  .inbox:hover{
+    background-color:rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);
+    border-width: 1.7px;
+    color: #000000;
+  }
+
+  .irr{
+    max-width: 5%;
+    max-height: 5%;
+    margin-left:15%;
+   
+    
+  }
+  .purposE{
+    font-size: 1.5vw;
+    margin-top:4%;
+    display:inline-block;
+  }
+  .iith{
+    max-width: 20%;
+    display:inline;
+    margin-left: 35%;
+  }
+
+  .ibutton{
+    background-color: #004cff;
+    border-color: #4000ff;
+    border-style: none;
+    border-radius: 3px;
+    color:white;
+    padding: 3% 5% 3% 5%;
+   
+    margin-bottom: 5%;
+    margin-right: 2%;
+    font-size: 1vw;
+    cursor: pointer;
+  }
+
+  .ibutton:hover{
+    background-color: #002fff;
+    transition: 0.2s;
+    box-shadow: 3px 3px 3px #acacac;
+  }
+
+  #email::placeholder {
+    opacity: 0;
+}
+
+#email:hover::placeholder {
+    opacity: 1;
+}
+
+#bookname::placeholder {
+  opacity: 0;
+}
+
+#bookname:hover::placeholder {
+  opacity: 1;
+}
+
+#authorname::placeholder {
+  opacity: 0;
+}
+
+#authorname:hover::placeholder {
+  opacity: 1;
+}
