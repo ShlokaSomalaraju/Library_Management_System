@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html>
-
+<?php
+  $connect = new mysqli('localhost', 'root', '', 'Library');
+  if (!$connect) {
+    die(mysqli_error($connect));
+  }
+  session_start();
+  if (isset($_SESSION['is_logged']) && $_SESSION['is_logged'] == true) {
+    $admin_email = $_SESSION['admin_email'];
+  }
+  else {
+    echo 
+    "<script>
+    alert('Please Login first');
+    window.location.href='./index.php';       
+    </script>";
+    }
+?>
 <head>
     <title>Admin page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,12 +24,14 @@
     <link rel="icon" type="image/jpg" href="../images/logo.png">
     <script>
         function validateForm() {
-            window.location.href = "../all_HTML/login_page.html";
-
-            return false;
+        <?php
+        $_SESSION = array();
+        session_destroy();
+        ?>
+        window.location.href = "./index.php";
+        return false;
         }
     </script>
-
 </head>
 
 <body class="acontainer">
@@ -27,21 +45,24 @@
                 <img src="../images/addbook.jpeg" alt="no-image" class="a1img">
                 <p class="atextinissue">Want to add a new book? <br>&nbsp;&nbsp;&nbsp;&nbsp;Click Here<span
                         class="aarrow">&#8595</span;< /p>
-                        <button class="abutton1">Add new books</button>
+                        <button class="abutton1" onclick="add()">Add new books</button>
             </div>
             <div class="abox2">
                 <img src="../images/bookissue.png" alt="no-image" class="a2img">
                 <p class="atextinissue">Issue/Return/Reissue of books? <br>&nbsp;&nbsp;&nbsp;&nbsp;Click Here<span
                         class="aarrow">&#8595</span;< /p>
-                        <button class="abutton2">Issue&nbsp;/&nbsp;return&nbsp;/&nbsp;reissue</button>
+                        <button class="abutton2" onclick="issue()">Issue&nbsp;/&nbsp;return&nbsp;/&nbsp;reissue</button>
             </div>
         </div>
-
-
-
-
+        <script>
+        function add(){
+            window.location.href='./insertbooks.php';
+        }
+        function issue(){
+            window.location.href='./transaction.php';
+        }
+    </script>
     </div>
-
 </body>
 
 </html>
