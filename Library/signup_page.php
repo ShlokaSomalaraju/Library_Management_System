@@ -1,5 +1,41 @@
 <!DOCTYPE html>
 <html>
+<?php
+$connect = new mysqli('localhost', 'root', '', 'Library');
+if (!$connect) {
+  die(mysqli_error($connect));
+}
+if (isset($_POST['submit'])) {
+  $user_name = $_POST['name'];
+  $user_email = $_POST['email'];
+  $user_password = $_POST['password'];
+  $user_rollno = $_POST['id'];
+  $check = "SELECT * FROM `Users` WHERE user_email='$user_email'";
+  $check_result = mysqli_query($connect, $check);
+  $number = mysqli_num_rows($check_result);
+  if ($number > 0) {
+    echo
+    "<script>
+            alert('User already exists');
+            window.location.href='./index.php';       
+        </script>";
+  } else {
+    $insert_sql = "INSERT INTO `Users` VALUES ('$user_rollno','$user_name','$user_password','$user_email','user')";
+    $result = mysqli_query($connect, $insert_sql);
+    if ($result) {
+      echo
+      "<script>
+            alert('Successfully registered');
+            window.location.href='./index.php';
+            </script>";
+    } else {
+      echo "Fail";
+    }
+  }
+}
+
+
+?>
 
 <head>
   <title>Signup_page</title>
@@ -48,10 +84,7 @@
       var successMessage = document.getElementById('successMessage');
       successMessage.style.display = 'block';
 
-      // Redirect to YouTube link after form submission
-      window.location.href = "../all_HTML/login_page.html";
-
-      return false;
+      return true;
     }
   </script>
 </head>
@@ -62,7 +95,7 @@
       <img src="../images/rishi.jpg" alt="Image Description" class="sidepic1">
       <div class="box1">
         <div class="login1">
-          <form enctype="multipart/form-data">
+          <form action="" method="POST" enctype="multipart/form-data">
             <fieldset class="filed1">
               <legend class="loginbox">SignUp</legend>
               <div class="inbox">
@@ -85,7 +118,7 @@
 
                 <br><br>
 
-                <button type="submit" class="submit1" onclick="return validateForm()">Sign-in</button>
+                <button type="submit" name="submit" class="submit1" onclick="return validateForm()">Sign-in</button>
               </div>
             </fieldset>
           </form>
