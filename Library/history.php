@@ -7,7 +7,24 @@
   <link rel="stylesheet" type="text/css" href="../all_CSS/stylingUser.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-
+<?php
+session_start();
+if (isset($_SESSION['is_logged']) && $_SESSION['is_logged'] == true) {
+  $user_email = $_SESSION['user_email'];
+}
+else {
+  echo 
+  "<script>
+  alert('Please Login first');
+  window.location.href='./index.php';       
+</script>";}
+if (isset($_POST['logout'])) {
+    $_SESSION = array();
+    session_destroy();
+    header("Location: ./index.php");
+    exit();
+}
+?>
 <body>
   <div class="container">
     <header class="header">
@@ -17,7 +34,7 @@
           <div class="dropdown-content">
             <a href="./history.php">History</a>
             <a href="./profile.php">Profile</a>
-            <form action="./index.php" method="post">
+            <form action="" method="post">
               <button type="submit" name="logout">Logout</button>
             </form>
           </div>
@@ -49,8 +66,6 @@
         if (!$connect) {
           die(mysqli_error($connect));
         }
-        session_start();
-        $user_email = $_SESSION['user_email'];
         $history = "SELECT * FROM `Transactions` WHERE user_email='$user_email' AND transaction_status='returned' ORDER BY borrow_date DESC";
         $history_result = mysqli_query($connect, $history);
         $number = mysqli_num_rows($history_result);
@@ -62,7 +77,7 @@
               while ($book_details_row = mysqli_fetch_assoc($book_details_result)) {
                 echo '
                     <div class="records-box">
-                    <img src="./book_images/' . $book_details_row["book_image"] . '" alt="' . $book_details_row["book_name"] . '">
+                    <img src="../images/book_images/' . $book_details_row["book_image"] . '" alt="' . $book_details_row["book_name"] . '">
                      <div class="records-details">
                       <p class="text-css">' . $book_details_row["book_name"] . '</p>
                       <p>by <span class="text-css">' . $book_details_row["book_author"] . '</span></p>
