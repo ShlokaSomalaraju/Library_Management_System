@@ -33,7 +33,7 @@ if (isset($_POST['insert_book'])) {
     $book_image = $_FILES['image']['name'];
     $book_temp_name = $_FILES['image']['tmp_name'];
 
-    if (move_uploaded_file($book_temp_name, "./book_images/$book_image")) {
+    if (move_uploaded_file($book_temp_name, "../images/book_images/$book_image")) {
     } else {
         echo "<script>alert('Failure In Adding The Image')</script>";
     }
