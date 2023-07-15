@@ -7,6 +7,33 @@
   <link rel="stylesheet" type="text/css" href="../all_CSS/stylingUser.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+<?php
+  $connect = new mysqli('localhost', 'root', '', 'Library');
+  if (!$connect) {
+    die(mysqli_error($connect));
+  }
+  session_start();
+  if (isset($_SESSION['is_logged']) && $_SESSION['is_logged'] == true) {
+    $user_email = $_SESSION['user_email'];
+  }
+  else {
+    echo 
+    "<script>
+    alert('Please Login first');
+    window.location.href='./index.php';       
+</script>";
+
+  }
+  
+  ?>
+  <?php
+if (isset($_POST['logout'])) {
+    $_SESSION = array();
+    session_destroy();
+    header("Location: ./index.php");
+    exit();
+}
+?>
 
 <body>
   <div class="container">
@@ -17,7 +44,7 @@
           <div class="dropdown-content">
             <a href="./history.php">History</a>
             <a href="./profile.php">Profile</a>
-            <form action="./index.php" method="post">
+            <form action="" method="post">
               <button type="submit" name="logout">Logout</button>
             </form>
           </div>

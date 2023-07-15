@@ -9,13 +9,32 @@
 </head>
 
 <body>
-  <?php
+<?php
   $connect = new mysqli('localhost', 'root', '', 'Library');
   if (!$connect) {
     die(mysqli_error($connect));
   }
   session_start();
-  $user_email = $_SESSION['user_email'];
+  if (isset($_SESSION['is_logged']) && $_SESSION['is_logged'] == true) {
+    $user_email = $_SESSION['user_email'];
+  }
+  else {
+    echo 
+    "<script>
+    alert('Please Login first');
+    window.location.href='./index.php';       
+  </script>";
+
+  }
+  
+  ?>
+  <?php
+  if (isset($_POST['logout'])) {
+      $_SESSION = array();
+      session_destroy();
+      header("Location: index.php");
+      exit();
+  }
   ?>
   <div class="container">
     <header class="header">
@@ -25,7 +44,7 @@
           <div class="dropdown-content">
             <a href="./history.php">History</a>
             <a href="./profile.php">Profile</a>
-            <form action="./index.php" method="post">
+            <form action="" method="post">
               <button type="submit" name="logout">Logout</button>
             </form>
           </div>
@@ -82,7 +101,7 @@
             while ($book_details_row = mysqli_fetch_assoc($book_details_result)) {
               echo '
    <div class="box">
-   <img src="./book_images/' . $book_details_row["book_image"] . '" alt="' . $book_details_row["book_name"] . '">
+   <img src="../images/book_images/' . $book_details_row["book_image"] . '" alt="' . $book_details_row["book_name"] . '">
      <div class="box-details">
        <p class="text-css">' . $book_details_row["book_name"] . '</p>
        <p>by <span class="text-css">' . $book_details_row["book_author"] . '</span></p>

@@ -17,28 +17,27 @@
     </script>";
     }
 ?>
+  <?php
+if (isset($_POST['logout'])) {
+    $_SESSION = array();
+    session_destroy();
+    header("Location: index.php");
+    exit();
+}
+?>
 <head>
     <title>Admin page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../all_CSS/astyle.css">
-    <link rel="icon" type="image/jpg" href="../images/logo.png">
-    <script>
-        function validateForm() {
-        <?php
-        $_SESSION = array();
-        session_destroy();
-        ?>
-        window.location.href = "./index.php";
-        return false;
-        }
-    </script>
 </head>
 
 <body class="acontainer">
     <div class="astart">
         <div class="aboxh">
             <br><h2 class="aheading">Welcome to Library Management System</h2>
-            <button type="submit" class="alogout" onclick="return validateForm()">LogOut</button>
+            <form action="" method="post">
+                <button type="submit" class="alogout" name ="logout">LogOut</button>
+            </form>
         </div>
         <div class="arow">
             <div class="abox1">
