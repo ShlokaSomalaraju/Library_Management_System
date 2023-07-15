@@ -25,6 +25,7 @@ if (isset($_POST['logout'])) {
     exit();
 }
 ?>
+
 <body>
   <div class="container">
     <header class="header">
@@ -32,8 +33,8 @@ if (isset($_POST['logout'])) {
         <div class="dropdown">
           <i class="fas fa-user" style="font-size: 30px; color: white;"></i>
           <div class="dropdown-content">
-            <a href="./history.php">History</a>
-            <a href="./profile.php">Profile</a>
+            <a href="history.php">History</a>
+            <a href="profile.php">Profile</a>
             <form action="" method="post">
               <button type="submit" name="logout">Logout</button>
             </form>
@@ -42,8 +43,8 @@ if (isset($_POST['logout'])) {
       </div>
       <nav class="user-nav">
         <ul>
-          <li><a href="./userhome.php"><i class="fas fa-home" style="font-size: 20px; color: white;"></i></a></li>
-          <li><a href="./about.php" style="font-size: 15px; color: white;">About</a></li>
+          <li><a href="userhome.php"><i class="fas fa-home" style="font-size: 20px; color: white;"></i></a></li>
+          <li><a href="about.php" style="font-size: 15px; color: white;">About</a></li>
 
         </ul>
         <form action="" method="post">
@@ -66,23 +67,36 @@ if (isset($_POST['logout'])) {
         if (!$connect) {
           die(mysqli_error($connect));
         }
-        $searchQuery = $_POST["search"];
-        $search_sql = "SELECT * FROM `Books` WHERE book_name LIKE '%$searchQuery%' OR book_author LIKE '%$searchQuery%' OR book_genre LIKE '%$searchQuery%' ORDER BY RAND()";
-        $search_sql_result = mysqli_query($connect, $search_sql);
-        if (mysqli_num_rows($search_sql_result) > 0) {
-          while ($book_details_row = mysqli_fetch_assoc($search_sql_result)) {
-            echo   '<div class="book-box">
-                      <img src="../images/book_images/' . $book_details_row["book_image"] . '" alt="' . $book_details_row["book_name"] . '">
-                        <div class="book-details">
-                          <p class="text-css">' . $book_details_row["book_name"] . '</p>
-                          <p >by <span class="text-css">' . $book_details_row["book_author"] . '</span></p>
-                          <p class="text-css">' . $book_details_row["book_genre"] . '</p>
-                          <p><span class="text-css">' . $book_details_row["num_copies"] . '</span> copies available</p>
-                        </div>
-                    </div>';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+          $searchQuery = $_POST["search"];
+          $searchQuery = strtolower(trim($searchQuery));
+          $tokens = explode(' ', $searchQuery);
+          $search_sql = "SELECT DISTINCT * FROM books WHERE 1=2"; 
+          foreach ($tokens as $token) {
+            if($token== ''){
+            }
+            else{
+              $search_sql .= " OR (book_genre LIKE '%$token%' OR book_author LIKE '%$token%' OR book_name LIKE '%$token%')";
+            }
+            
           }
-        } else {
-          echo "No results found.";
+          $search_sql .= "ORDER BY RAND()";
+          $search_sql_result = mysqli_query($connect, $search_sql);
+          if (mysqli_num_rows($search_sql_result) > 0) {
+            while ($book_details_row = mysqli_fetch_assoc($search_sql_result)) {
+              echo   '<div class="book-box">
+                        <img src="../images/book_images/' . $book_details_row["book_image"] . '" alt="' . $book_details_row["book_name"] . '">
+                          <div class="book-details">
+                            <p class="text-css">' . $book_details_row["book_name"] . '</p>
+                            <p >by <span class="text-css">' . $book_details_row["book_author"] . '</span></p>
+                            <p class="text-css">' . $book_details_row["book_genre"] . '</p>
+                            <p><span class="text-css">' . $book_details_row["num_copies"] . '</span> copies available</p>
+                          </div>
+                      </div>';
+            }
+          } else {
+            echo "No results found.";
+          }
         }
         ?>
       </div>
