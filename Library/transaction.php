@@ -82,7 +82,8 @@ if (isset($_POST['transaction'])) {
                 echo "<script>alert('Book cannot be reissued, pay fine')</script>";
             }
             $updated_return_by_date = date("Y-m-d", strtotime("+40 days", strtotime($current_date)));
-            $update_dates = "UPDATE `Transactions` SET borrow_date='$current_date', return_by_date='$updated_return_by_date' ";
+            $update_dates = "UPDATE `Transactions` SET borrow_date='$current_date', return_by_date='$updated_return_by_date'  WHERE user_email='$user_email' AND book_name='$book_name' AND book_author='$book_author' AND transaction_status='issued'";
+            $update_dates_result=mysqli_query($connect,$update_dates);
             echo "<script>alert('Book reissued successfully')</script>";
         } else {
             echo "<script>alert('Reissue not possible as book is not issued earlier')</script>";
