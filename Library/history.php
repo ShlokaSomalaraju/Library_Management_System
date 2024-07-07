@@ -62,7 +62,7 @@ if (isset($_POST['logout'])) {
       <h1>Check your previous<span class="attractive-text"> Book records</span></h1>
       <div class="book-container">
         <?php
-        $connect = new mysqli('localhost', 'root', '', 'Library');
+        $connect = new mysqli('127.0.0.1', 'root', '', 'Library');
         if (!$connect) {
           die(mysqli_error($connect));
         }

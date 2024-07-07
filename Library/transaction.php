@@ -8,7 +8,7 @@
     <link rel="icon" type="image/jpg" href="../images/logo.png">
 </head>
 <?php
-$connect = new mysqli('localhost', 'root', '', 'Library');
+$connect = new mysqli('127.0.0.1', 'root', '', 'Library');
 if (!$connect) {
     die(mysqli_error($connect));
 }
