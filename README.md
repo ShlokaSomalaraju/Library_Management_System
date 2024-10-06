@@ -39,6 +39,8 @@ Contributors
 
 CS22BTECH11024 - G.Sai Keerthi (Frontend)
 
+CS22BTECH11056 - Bhavya Shloka Somalaraju (Frontend)
+
 CS22BTECH11050 - Rishitha Surineni (Backend)
 
 CS22BTECH11042 - Nalavolu Chetana (Backend)
